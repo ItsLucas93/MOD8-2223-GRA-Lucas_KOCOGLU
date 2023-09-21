@@ -1,0 +1,45 @@
+@import "default-personnal-package.css";
+
+* {
+    margin: 0;
+}
+
+h1 {
+    font-family: Montserrat, sans-serif;!important;
+}
+
+header {
+    line-height: 1.5;
+    max-height: 100vh;
+    min-height: 30vh;
+    width: 100%;
+
+    background: url("assets/gif/aqua-oshino-eyes-zoomout.gif") center no-repeat;
+    background-size: cover;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    height: 100%;
+}
+
+main {
+    margin: 5rem;
+}
+
+footer {
+    padding: 1rem;
+    background-color: var(--color-background);
+}
+
+footer p {
+    text-align: center;
+}
