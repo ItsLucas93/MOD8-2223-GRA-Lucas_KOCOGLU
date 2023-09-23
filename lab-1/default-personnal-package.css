@@ -26,6 +26,9 @@
     --palette-link-visited-light: #551a8b;
     --palette-link-dark: #3495f5;
     --palette-link-visited-dark: #b97cf3;
+
+    --palette-shadow-dark: rgba(0, 0, 0, 0.20);
+    --palette-shadow-light: rgba(255, 255, 255);
 }
 
 /* Semantic color variables. */
@@ -42,7 +45,9 @@
     --color-text-soft: var(--palette-text-light-3);
 
     --color-link: var(--palette-link-light);
-    --color-link-visited: var(--palette-link-visited-light)
+    --color-link-visited: var(--palette-link-visited-light);
+
+    --color-shadow: var(--palette-shadow-dark);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,7 +64,9 @@
         --color-text-soft: var(--palette-text-dark-3);
 
         --color-link: var(--palette-link-dark);
-        --color-link-visited: var(--palette-link-visited-dark)
+        --color-link-visited: var(--palette-link-visited-dark);
+
+        --color-shadow: var(--palette-shadow-light);
     }
 }
 
@@ -89,15 +96,12 @@ p {
     color: var(--color-link-visited);
 }
 
+h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-weight: lighter;
+    font-family: Montserrat, sans-serif;
     color: var(--color-heading);
-}
-
-h1 {
-    font-size: 2em;
 }
