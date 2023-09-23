@@ -44,7 +44,7 @@
     --color-text: var(--palette-text-light-2);
     --color-text-soft: var(--palette-text-light-3);
 
-    --color-link: var(--palette-link-light);
+    --color-link: var(--palette-link-visited-dark);
     --color-link-visited: var(--palette-link-visited-light);
 
     --color-shadow: var(--palette-shadow-dark);
@@ -93,7 +93,7 @@ p {
 }
 
 :visited {
-    color: var(--color-link-visited);
+    color: var(--color-link);
 }
 
 h1,
