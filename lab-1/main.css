@@ -11,6 +11,10 @@ body {
     min-width: 625px;
 }
 
+/** Background decoration **/
+
+
+
 /** Header **/
 
 header {
@@ -114,6 +118,11 @@ nav li a:hover::after {
 
 main {
     margin: 1rem 5rem;
+}
+
+main > section:first-child {
+    margin-top: 0;
+    margin-bottom: 3rem;
 }
 
 section {
