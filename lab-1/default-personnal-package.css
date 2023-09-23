@@ -32,22 +32,24 @@
 }
 
 /* Semantic color variables. */
-:root {
-    --color-background: var(--palette-white);
-    --color-background-soft: var(--palette-white-soft);
-    --color-background-mute: var(--palette-white-mute);
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-background: var(--palette-white);
+        --color-background-soft: var(--palette-white-soft);
+        --color-background-mute: var(--palette-white-mute);
 
-    --color-border: var(--palette-divider-light-2);
-    --color-border-hover: var(--palette-divider-light-1);
+        --color-border: var(--palette-divider-light-2);
+        --color-border-hover: var(--palette-divider-light-1);
 
-    --color-heading: var(--palette-text-light-1);
-    --color-text: var(--palette-text-light-2);
-    --color-text-soft: var(--palette-text-light-3);
+        --color-heading: var(--palette-text-light-1);
+        --color-text: var(--palette-text-light-2);
+        --color-text-soft: var(--palette-text-light-3);
 
-    --color-link: var(--palette-link-visited-dark);
-    --color-link-visited: var(--palette-link-visited-light);
+        --color-link: var(--palette-link-visited-dark);
+        --color-link-visited: var(--palette-link-visited-light);
 
-    --color-shadow: var(--palette-shadow-dark);
+        --color-shadow: var(--palette-shadow-dark);
+    }
 }
 
 @media (prefers-color-scheme: dark) {
