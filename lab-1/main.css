@@ -129,6 +129,10 @@ section {
     h1 {
         font-size: 2.5em;
     }
+
+    div.component-bottom {
+        display: none;
+    }
 }
 
 /** Image section **/
