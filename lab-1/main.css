@@ -198,7 +198,7 @@ h2.bellow {
 }
 
 div.thumbnail:hover img.rectangle {
-    transform: scale(1.05) translate(-5%, -5%);
+    transform: scale(1.05) translate(-3%, -3%);
 }
 
 div.thumbnail h2.hover {
