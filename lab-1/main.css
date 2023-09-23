@@ -13,7 +13,56 @@ body {
 
 /** Background decoration **/
 
+div.background-image img {
+    position: absolute;
+    top: 50vh;
+    left: 30vw;
+    z-index: -1;
 
+    width: 50vw;
+    height: auto;
+
+    min-width: 400px;
+    min-height: 400px;
+
+    transform: rotate(30deg);
+}
+
+@media (prefers-color-scheme: dark) {
+    img.light-theme {
+        display: none;
+    }
+    img.dark-theme {
+        display: block;
+        opacity: 0.3;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    img.light-theme {
+        display: block;
+        opacity: 0.1;
+    }
+    img.dark-theme {
+        display: none;
+    }
+}
+
+/** Responsive dim rules **/
+
+@media (max-width: 850px) {
+    p {
+        font-size: 20px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    div.component-bottom {
+        display: none;
+    }
+}
 
 /** Header **/
 
@@ -33,7 +82,7 @@ header {
 
 #header-title h1 {
     font-size: 4em;
-    font-weight: 700;
+    font-weight: bold;
     text-align: center;
     color: white;
     height: 100%;
@@ -128,20 +177,6 @@ main > section:first-child {
 section {
     margin-top: 3rem;
     margin-bottom: 3rem;
-}
-
-@media (max-width: 850px) {
-    p {
-        font-size: 20px;
-    }
-
-    h1 {
-        font-size: 2.5em;
-    }
-
-    div.component-bottom {
-        display: none;
-    }
 }
 
 /** Image section **/
