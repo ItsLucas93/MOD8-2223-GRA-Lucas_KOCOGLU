@@ -1,0 +1,53 @@
+main {
+    margin: 0 2vw 0 25vw;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 1em;
+    margin-top: 5px;
+}
+
+section {
+    margin: 1rem 3rem;
+}
+
+section article:not(:first-of-type) {
+    margin-top: 2em;
+}
+
+article p {
+    line-height: 1.5;
+}
+
+article p:first-of-type {
+    margin-top: 2em;
+}
+
+article p:not(:last-of-type) {
+    margin-bottom: 2em;
+}
+
+
+
+aside {
+    position: fixed;
+    left: 7vw;
+    text-align: right;
+}
+
+aside ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+}
