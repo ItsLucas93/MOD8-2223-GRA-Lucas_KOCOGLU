@@ -90,8 +90,13 @@ p {
     sans-serif;
 }
 
+nav, li, ul, ol {
+    font-family: Montserrat, sans-serif;
+}
+
 :link, :visited {
     color: var(--color-link);
+    text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
