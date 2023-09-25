@@ -140,3 +140,7 @@ div.thumbnail:hover img.rectangle {
 div.thumbnail h2.hover {
     text-decoration: line-through;
 }
+
+div.thumbnail h2.ai.hover {
+    text-decoration: none;
+}
