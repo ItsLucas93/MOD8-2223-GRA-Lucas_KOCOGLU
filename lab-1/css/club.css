@@ -164,4 +164,8 @@ td.profilepicture img {
         word-wrap: unset;
         max-width: 30vw;
     }
+    td.tdUsername {
+        word-wrap: break-word;
+        max-width: 15vw;
+    }
 }
