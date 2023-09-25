@@ -34,6 +34,11 @@ label {
     width: 25%;
 }
 
+label.required:after {
+    content:" *";
+    color: red;
+}
+
 input[type=text] {
     float: left;
     width: 75%;
