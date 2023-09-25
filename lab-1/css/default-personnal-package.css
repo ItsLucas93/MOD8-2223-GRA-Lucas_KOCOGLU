@@ -30,6 +30,9 @@
     --palette-shadow-dark: rgba(0, 0, 0, 0.20);
     --palette-shadow-light: rgba(255, 255, 255);
 
+    --palette-red-dark: #d50000;
+    --palette-red-light: #e35c7b;
+
 }
 
 /* Semantic color variables. */
@@ -53,6 +56,8 @@
         --color-button-hover: var(--palette-link-visited-light);
 
         --color-shadow: var(--palette-shadow-dark);
+
+        --color-required: var(--palette-red-dark)
     }
 }
 
@@ -76,6 +81,8 @@
         --color-button-hover: var(--palette-link-light);
 
         --color-shadow: var(--palette-shadow-light);
+
+        --color-required: var(--palette-red-light)
     }
 }
 
