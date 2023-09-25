@@ -143,14 +143,25 @@ td.profilepicture {
     max-width: 256px;
     max-height: 256px;
     background-size: cover;
+
+    padding: 0;
 }
 
 td.profilepicture img {
-    max-width: 128px;
-    max-height: 128px;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
     aspect-ratio: 1/1;
 
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+@media (max-width: 850px) {
+    td {
+        overflow: scroll;
+        word-wrap: unset;
+        max-width: 30vw;
+    }
 }
