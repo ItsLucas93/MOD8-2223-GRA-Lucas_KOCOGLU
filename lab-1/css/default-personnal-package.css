@@ -10,8 +10,8 @@
 
     --palette-indigo: #2c3e50;
 
-    --palette-divider-light-1: rgba(60, 60, 60, 0.29);
-    --palette-divider-light-2: rgba(60, 60, 60, 0.12);
+    --palette-divider-light-1: rgb(227, 227, 227);
+    --palette-divider-light-2: rgba(231, 231, 231, 0.71);
     --palette-divider-dark-1: rgba(84, 84, 84, 0.65);
     --palette-divider-dark-2: rgba(84, 84, 84, 0.48);
 
@@ -29,6 +29,7 @@
 
     --palette-shadow-dark: rgba(0, 0, 0, 0.20);
     --palette-shadow-light: rgba(255, 255, 255);
+
 }
 
 /* Semantic color variables. */
@@ -38,8 +39,8 @@
         --color-background-soft: var(--palette-white-soft);
         --color-background-mute: var(--palette-white-mute);
 
-        --color-border: var(--palette-divider-light-2);
-        --color-border-hover: var(--palette-divider-light-1);
+        --color-border: var(--palette-divider-dark-2);
+        --color-border-hover: var(--palette-divider-dark-1);
 
         --color-heading: var(--palette-text-light-1);
         --color-text: var(--palette-text-light-2);
@@ -47,6 +48,9 @@
 
         --color-link: var(--palette-link-visited-dark);
         --color-link-visited: var(--palette-link-visited-light);
+
+        --color-button: var(--palette-link-visited-dark);
+        --color-button-hover: var(--palette-link-visited-light);
 
         --color-shadow: var(--palette-shadow-dark);
     }
@@ -58,15 +62,18 @@
         --color-background-soft: var(--palette-black-soft);
         --color-background-mute: var(--palette-black-mute);
 
-        --color-border: var(--palette-divider-dark-2);
-        --color-border-hover: var(--palette-divider-dark-1);
+        --color-border: var(--palette-divider-light-2);
+        --color-border-hover: var(--palette-divider-light-1);
 
         --color-heading: var(--palette-text-dark-1);
         --color-text: var(--palette-text-dark-2);
         --color-text-soft: var(--palette-text-dark-3);
 
         --color-link: var(--palette-link-dark);
-        --color-link-visited: var(--palette-link-visited-dark);
+        --color-link-visited: var(--palette-link-light);
+
+        --color-button: var(--palette-link-dark);
+        --color-button-hover: var(--palette-link-light);
 
         --color-shadow: var(--palette-shadow-light);
     }
@@ -112,4 +119,40 @@ nav, li, ul, ol {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     color: var(--color-heading);
+}
+
+label, ::placeholder{
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    color: var(--color-heading);
+}
+
+td {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    color: var(--color-heading);
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.75em;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+h5 {
+    font-size: 1.25em;
+}
+
+h6 {
+    font-size: 1em;
 }

@@ -1,0 +1,151 @@
+main {
+    text-align: center;
+    justify-content: space-between;
+
+    margin: 0 5vw;
+}
+
+form {
+    text-align: left;
+}
+
+fieldset {
+    align-items: baseline;
+    border-radius: 12px;
+    border: 2px dashed var(--color-border);
+    margin: 1vh 0 2vh 0;
+    padding: 1em;
+}
+
+div.row:last-of-type {
+    height: 6vh;
+}
+
+div.row {
+    align-items: center;
+    padding: 1em;
+    width: 95%;
+    max-height: 20%;
+    height: 3vh;
+}
+
+label {
+    float: left;
+    width: 25%;
+}
+
+input[type=text] {
+    float: left;
+    width: 75%;
+}
+
+textarea {
+    resize: none;
+    width: 50%;
+    height: 100%;
+}
+
+input[type=text], textarea {
+    padding: 0.5em 2em;
+    display: inline-block;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: var(--color-button);
+    color: var(--color-text);
+    padding: 1em 2em;
+    border: var(--color-border);
+    border-radius: 12px;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-top: 1vh;
+}
+
+input[type=submit]:hover {
+    background-color: var(--color-button-hover);
+}
+
+@media (max-width: 850px) {
+    div.row {
+        height: 6vh;
+        padding: 0 1em;
+    }
+
+    label {
+        width: unset;
+    }
+
+    input:not([type=submit]), textarea {
+        width: 100%;
+        height: 50%;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    div.row:last-of-type {
+        height: 6vh;
+    }
+}
+
+legend {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px dashed var(--color-border);
+    margin: 1vh 0 2vh 0;
+
+    table-layout: fixed;
+    max-width: 100%;
+}
+
+td {
+    border: 1px solid var(--color-border);
+    padding: 1em;
+    text-align: center;
+    font-size: 95%;
+
+    min-width: 5vw;
+    max-width: 50vw;
+
+    word-wrap: break-word;
+}
+
+thead th {
+    font-weight: bold;
+    border: 2px solid var(--color-border);
+    border-top: 2px dashed var(--color-border);;
+    font-size: 95%;
+    width: 80vw;
+}
+
+thead th:is(:first-child) {
+    border-left: 2px dashed var(--color-border);
+}
+
+thead th:is(:last-child) {
+    border-right: 2px dashed var(--color-border);
+}
+
+td.profilepicture {
+    max-width: 256px;
+    max-height: 256px;
+    background-size: cover;
+}
+
+td.profilepicture img {
+    max-width: 128px;
+    max-height: 128px;
+    aspect-ratio: 1/1;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

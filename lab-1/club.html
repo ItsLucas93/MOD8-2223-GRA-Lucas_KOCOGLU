@@ -6,6 +6,7 @@
 	<meta name="description" content="Lorem Ipsum">
 	
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/club.css">
 	
 	<link type="image/png" rel="icon" href="assets/favicon/favicon-16x16.png" sizes="16x16">
 	<link type="image/png" rel="icon" href="assets/favicon/favicon-32x32.png" sizes="32x32">
@@ -41,6 +42,49 @@
 </nav>
 
 <main>
+	
+	<h2>Register here!</h2>
+	<p>Lorem Ipsum</p>
+	<form method="post" id="add-club-member" name="add-club-member" action="#" onsubmit="return false">
+		<fieldset>
+			<legend>Your information</legend>
+			
+			<!-- Required -->
+			<div class="row">
+				<label for="username">Username :</label>
+				<input type="text" id="username" name="username" value="" placeholder="Username" maxlength="32" required><br>
+			</div>
+			
+			<!-- Optional -->
+			<div class="row" id="input-file">
+				<label for="profile-picture">Profile picture :</label>
+				<input type="file" id="profile-picture" name="profile-picture" value="" placeholder="Profile picture" accept="image/*"><br>
+			</div>
+			
+			<!-- Optional -->
+			<div class="row">
+				<label for="description">Description :</label>
+				<textarea id="description" name="description" placeholder="Description (Max length: 512)" maxlength="512"></textarea><br>
+			</div>
+			
+			<input id="submit" class="btn validate" type="submit" value="Submit applciation" onclick="">
+		</fieldset>
+		</form>
+	
+	<h2>Registered Users</h2>
+	<table id="user-table">
+		<thead>
+			<tr>
+				<th>Username</th>
+				<th>Profile Picture</th>
+				<th>Description</th>
+				<th>Join timestamp</th>
+			</tr>
+		</thead>
+		<tbody id="user-table-body">
+		<!-- Table rows will be added dynamically here -->
+		</tbody>
+	</table>
 
 </main>
 
@@ -58,10 +102,6 @@
 	</ul>
 </nav>
 
-<main>
-
-</main>
-
 <footer>
 	<div id="footer-text">
 		<p>© Images are property of their respective owners. - Lab 1 / The story of Aquamarine Hoshino</p>
@@ -69,5 +109,5 @@
 </footer>
 
 </body>
-<script src="script.js"></script>
+<script src="club.js"></script>
 </html>
