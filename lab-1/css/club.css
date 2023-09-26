@@ -169,3 +169,7 @@ td.profilepicture img {
         max-width: 15vw;
     }
 }
+
+tr:hover td {
+    background-color: var(--color-background-mute);
+}
