@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
             addToLocalStorage(monformulaire.elements["username"].value, monformulaire.elements["profile-picture"], monformulaire.elements["description"].value);
             console.log(monformulaire.elements["profile-picture"].files[0]);
         }
+        printLocalStorage();
     });
     printLocalStorage();
 });
