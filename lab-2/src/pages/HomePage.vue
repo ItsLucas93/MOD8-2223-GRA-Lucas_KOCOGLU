@@ -1,11 +1,26 @@
 <template>
-  <div>
-    <input v-model="searchQuery" placeholder="Search for books" />
-    <ul v-if="filteredBooks.length">
-      <li v-for="book in filteredBooks" :key="book.id">
-        <book-item :book="book" />
-      </li>
-    </ul>
+  <div class="homepage">
+    <h1>Search for your book !</h1>
+    <input
+      v-model="searchQuery"
+      placeholder="Search for books"
+      class="search-bar"
+    />
+    <div id="result-search" v-show="searchQuery">
+      <ul v-if="filteredBooks.length">
+        <li v-for="book in filteredBooks" :key="book.id">
+          <book-item :book="book" />
+        </li>
+      </ul>
+    </div>
+    <div id="recommanded-book" v-if="recommandedBooks.length">
+      <h1>Recommanded books :</h1>
+      <ul v-if="recommandedBooks.length">
+        <li v-for="book in recommandedBooks" :key="book.id">
+          <book-item :book="book" />
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -19,13 +34,67 @@ export default {
   setup() {
     const searchQuery = ref("");
     const books = ref(getBooks());
+
     const filteredBooks = computed(() => {
-      return books.value.filter((book) =>
-        book.title.toLowerCase().includes(searchQuery.value.toLowerCase()),
+      const results = books.value.filter((book) =>
+          book.title.toLowerCase().includes(searchQuery.value.toLowerCase())
       );
+      return results.slice(0, 5);
     });
 
-    return { searchQuery, filteredBooks };
+    let recommandedBooks = [];
+    for (let i = 0; i < books.value.length && recommandedBooks.length < 3; i++) {
+      try {
+        if (Math.round(Math.random()) === 1) {
+          recommandedBooks.push(books.value[i]);
+        }
+      } catch (e) {
+      }
+    }
+
+    return { searchQuery, filteredBooks, recommandedBooks };
   },
 };
 </script>
+<style scoped>
+div.homepage {
+  max-width: 80vw;
+  width: 80vw;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+input.search-bar {
+  width: 100%;
+  padding: 1em;
+  margin-bottom: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  outline: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 1em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 844px) {
+  div.homepage {
+    font-size: 18px;
+  }
+}
+
+</style>
