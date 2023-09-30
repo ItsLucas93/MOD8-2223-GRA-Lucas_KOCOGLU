@@ -1,0 +1,118 @@
+<template>
+  <form @submit.prevent="handleSubmit">
+    <label>
+      Title:
+      <input
+        v-model="book.title"
+        type="text"
+        minlength="1"
+        maxlength="100"
+        required
+      />
+    </label>
+    <label>
+      Author:
+      <input
+        v-model="book.author"
+        type="text"
+        minlength="1"
+        maxlength="100"
+        required
+      />
+    </label>
+    <label>
+      Page Count:
+      <input v-model.number="book.pageCount" type="number" min="1" required />
+    </label>
+    <button
+      type="submit"
+      :disabled="!isValidTitle || !isValidAuthor || !isValidPageCount"
+    >
+      {{ buttonLabel }}
+    </button>
+  </form>
+</template>
+
+<script>
+import { computed, ref } from "vue";
+
+export default {
+  emits: ["submit"],
+  props: {
+    initialBook: {
+      type: Object,
+      default: () => ({}),
+    },
+    buttonLabel: {
+      type: String,
+      default: "Submit",
+    },
+  },
+  setup(props, { emit }) {
+    let book = {};
+    if (JSON.stringify(props.initialBook) !== JSON.stringify({})) {
+      // If book already defined (like from BookPage.vue), use it
+      book = ref({
+        title: props.initialBook.title,
+        author: props.initialBook.author,
+        pageCount: props.initialBook.pageCount,
+      });
+    } else {
+      // If book doesn't exist (like from AddBookPage.vue), create it
+      book = ref({
+        title: "",
+        author: "",
+        pageCount: 0,
+      });
+    }
+
+    const isValidTitle = computed(
+      () =>
+        book.value.title.length <= 100 &&
+        book.value.title.length !== 0 &&
+        book.value.title.trim() !== "",
+    );
+    const isValidAuthor = computed(
+      () =>
+        book.value.author.length <= 100 &&
+        book.value.author.length !== 0 &&
+        book.value.author.trim() !== "",
+    );
+    const isValidPageCount = computed(() => book.value.pageCount > 0);
+
+    /*
+    // Used for debbug of Validation
+    watchEffect(() => {
+      console.log(
+          'isValidTitle:', isValidTitle.value,
+          'isValidAuthor:', isValidAuthor.value,
+          'isValidPageCount:', isValidPageCount.value,
+          'Disabled:', !isValidTitle.value || !isValidAuthor.value || !isValidPageCount.value
+      );
+    });
+     */
+
+    function handleSubmit() {
+      if (
+        !isValidTitle.value ||
+        !isValidAuthor.value ||
+        !isValidPageCount.value
+      )
+        return false;
+      emit("submit", {
+        title: book.value.title,
+        author: book.value.author,
+        pageCount: book.value.pageCount,
+      });
+    }
+
+    return {
+      book,
+      handleSubmit,
+      isValidTitle,
+      isValidAuthor,
+      isValidPageCount,
+    };
+  },
+};
+</script>
