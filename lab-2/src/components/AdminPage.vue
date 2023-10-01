@@ -18,13 +18,12 @@ export default {
     const books = ref([]);
     const localStorageKey = "books";
 
-
-    fetch('src/storage/defaultModel.json')
-        .then(response => response.json())
-        .then(data => {
-          books.value = data;
-        })
-        .catch(error => console.error(error));
+    fetch("src/storage/defaultModel.json")
+      .then((response) => response.json())
+      .then((data) => {
+        books.value = data;
+      })
+      .catch((error) => console.error(error));
 
     const localStorageData = computed(() => {
       const data = localStorage.getItem(localStorageKey);
@@ -41,7 +40,7 @@ export default {
       window.location.reload();
     }
 
-    return {clearLocalStorage, localStorageData, setSampleData };
+    return { clearLocalStorage, localStorageData, setSampleData };
   },
 };
 </script>

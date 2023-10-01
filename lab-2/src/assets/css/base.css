@@ -100,8 +100,7 @@ body {
   color: var(--color-text);
   background: var(--color-background-soft);
   transition:
-    color 0.5s,
-    background-color 0.5s;
+    color 0.5s;
   line-height: 1.6;
   font-size: 15px;
   text-rendering: optimizeLegibility;
@@ -131,7 +130,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+legend {
   font-family: "Montserrat", sans-serif;
   color: var(--color-heading);
 }
@@ -171,4 +171,58 @@ h5 {
 
 h6 {
   font-size: 1em;
+}
+
+fieldset {
+  align-items: baseline;
+  border-radius: 12px;
+  border: 2px dashed var(--color-border);
+  margin: 1vh 0 2vh 0;
+  padding: 1em;
+}
+
+button {
+  background-color: var(--color-button);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+
+  border-radius: 12px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color-button-hover);
+  color: var(--color-text-soft);
+}
+
+div.row {
+  padding: 1em;
+  width: 95%;
+  max-height: 20%;
+  height: 3vh;
+
+}
+
+@media (max-width: 850px) {
+  div.row {
+    padding: 0 1em;
+    display: inline-grid;
+  }
+  div.row:not(:last-of-type) {
+    margin-bottom: 4vh;
+  }
+
+  div.row:last-of-type {
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+  }
+
+  label {
+    width: unset;
+  }
 }

@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <book-form @submit="addBook" buttonLabel="Add" />
-  </div>
+  <main>
+    <h1>Add a book to your storage</h1>
+    <fieldset>
+      <legend>Add book</legend>
+      <book-form @submit="addBook" buttonLabel="Add" />
+    </fieldset>
+  </main>
 </template>
 
 <script>
@@ -22,3 +26,13 @@ export default {
   },
 };
 </script>
+
+<style>
+main {
+  max-width: 80vw;
+  width: 80vw;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+</style>

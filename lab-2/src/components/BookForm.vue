@@ -1,35 +1,49 @@
 <template>
   <form @submit.prevent="handleSubmit">
-    <label>
-      Title:
+    <div class="row">
+      <label for="title" class="required"> Title: </label>
       <input
         v-model="book.title"
         type="text"
         minlength="1"
         maxlength="100"
+        name="title"
         required
       />
-    </label>
-    <label>
-      Author:
+    </div>
+    <div class="row">
+      <label for="author" class="required"> Author: </label>
       <input
         v-model="book.author"
         type="text"
         minlength="1"
         maxlength="100"
+        name="author"
         required
       />
-    </label>
-    <label>
-      Page Count:
-      <input v-model.number="book.pageCount" type="number" min="1" required />
-    </label>
-    <button
-      type="submit"
-      :disabled="!isValidTitle || !isValidAuthor || !isValidPageCount"
-    >
-      {{ buttonLabel }}
-    </button>
+    </div>
+    <div class="row">
+      <label for="pageCount" class="required">
+        Page Count:
+      </label>
+
+        <input
+            v-model.number="book.pageCount"
+            type="number"
+            min="1"
+            name="pageCount"
+            required
+        />
+    </div>
+
+    <div class="row">
+      <button
+        type="submit"
+        :disabled="!isValidTitle || !isValidAuthor || !isValidPageCount"
+      >
+        {{ buttonLabel }}
+      </button>
+    </div>
   </form>
 </template>
 
