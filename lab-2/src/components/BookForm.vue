@@ -23,17 +23,15 @@
       />
     </div>
     <div class="row">
-      <label for="pageCount" class="required">
-        Page Count:
-      </label>
+      <label for="pageCount" class="required"> Page Count: </label>
 
-        <input
-            v-model.number="book.pageCount"
-            type="number"
-            min="1"
-            name="pageCount"
-            required
-        />
+      <input
+        v-model.number="book.pageCount"
+        type="number"
+        min="1"
+        name="pageCount"
+        required
+      />
     </div>
 
     <div class="row">

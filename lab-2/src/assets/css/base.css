@@ -99,8 +99,7 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background-soft);
-  transition:
-    color 0.5s;
+  transition: color 0.5s;
   line-height: 1.6;
   font-size: 15px;
   text-rendering: optimizeLegibility;
@@ -205,7 +204,6 @@ div.row {
   width: 95%;
   max-height: 20%;
   height: 3vh;
-
 }
 
 @media (max-width: 850px) {
