@@ -1,5 +1,8 @@
 function getBooks() {
   const data = localStorage.getItem("books");
+  if (!data) {
+    localStorage.setItem("books", JSON.stringify([]));
+  }
   return data ? JSON.parse(data) : [];
 }
 

@@ -17,7 +17,12 @@ export default {
   methods: {
     addBook(newBook) {
       const books = getBooks();
-      newBook.id = books.sort((a, b) => a.id - b.id)[books.length - 1].id + 1;
+
+      if (books.length === 0) {
+        newBook.id = 1;
+      } else {
+        newBook.id = books.sort((a, b) => a.id - b.id)[books.length - 1].id + 1;
+      }
 
       books.push(newBook);
       saveBooks(books);
@@ -34,5 +39,4 @@ main {
   margin: 0 auto;
   padding: 20px;
 }
-
 </style>

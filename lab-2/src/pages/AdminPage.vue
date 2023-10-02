@@ -37,6 +37,7 @@ export default {
 
     function setSampleData() {
       localStorage.setItem(localStorageKey, JSON.stringify(books.value));
+      console.log(JSON.stringify(books.value));
       window.location.reload();
     }
 
