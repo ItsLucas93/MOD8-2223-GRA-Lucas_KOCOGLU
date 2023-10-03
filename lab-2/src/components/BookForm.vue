@@ -34,6 +34,10 @@
       />
     </div>
 
+    <div class="row returnMessage" v-if="!isValidTitle || !isValidAuthor || !isValidPageCount">
+      <span class="returnMessage">Please fill all the fields correctly (No blank field).</span>
+    </div>
+
     <div class="row">
       <button
         type="submit"
@@ -104,6 +108,8 @@ export default {
     });
      */
 
+
+
     function handleSubmit() {
       if (
         !isValidTitle.value ||
@@ -128,3 +134,14 @@ export default {
   },
 };
 </script>
+
+<style>
+
+div.returnMessage {
+}
+
+span.returnMessage {
+  color: var(--color-required);
+  font-style: italic;
+}
+</style>

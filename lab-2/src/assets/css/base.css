@@ -23,8 +23,10 @@
   --palette-text-dark-3: rgba(235, 235, 235, 0.65);
 
   --palette-link-light: #0066cc;
+  --palette-link-light-visited: #5390c7;
   --palette-link-visited-light: #551a8b;
   --palette-link-dark: #3495f5;
+  --palette-link-dark-visited: #83baf3;
   --palette-link-visited-dark: #b97cf3;
 
   --palette-shadow-dark: rgba(0, 0, 0, 0.2);
@@ -74,7 +76,7 @@
     --color-text-soft: var(--palette-text-dark-3);
 
     --color-link: var(--palette-link-dark);
-    --color-link-visited: var(--palette-link-light);
+    --color-link-visited: var(--palette-link-dark-visited);
 
     --color-button: var(--palette-link-dark);
     --color-button-hover: var(--palette-link-light);
@@ -107,7 +109,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-p {
+p, span {
   font-family: "Helvetica Neue", sans-serif;
 }
 
@@ -118,9 +120,13 @@ ol {
   font-family: "Montserrat", sans-serif;
 }
 
-:link,
-:visited {
+:link, :visited {
   color: var(--color-link);
+  text-decoration: none;
+}
+
+li a:visited {
+  color: var(--color-link-visited);
   text-decoration: none;
 }
 
@@ -189,9 +195,14 @@ button {
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1em;
   cursor: pointer;
+
+  height: 100%;
+  width: 3em;
 }
 
 button:hover {
@@ -211,16 +222,29 @@ div.row {
     padding: 0 1em;
     display: inline-grid;
   }
-  div.row:not(:last-of-type) {
-    margin-bottom: 4vh;
-  }
 
   div.row:last-of-type {
     margin-bottom: 2vh;
     margin-top: 2vh;
   }
 
+  div.row:not(:last-of-type) {
+    margin-bottom: 4vh;
+  }
+
+  div.row.returnMessage {
+    margin-bottom: 0;
+  }
+
   label {
     width: unset;
   }
+}
+
+button:disabled {
+    background-color: var(--color-border);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    opacity: 0.5;
+    cursor: not-allowed;
 }

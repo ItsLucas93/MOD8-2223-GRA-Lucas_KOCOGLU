@@ -32,7 +32,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 main {
   max-width: 80vw;
   width: 80vw;

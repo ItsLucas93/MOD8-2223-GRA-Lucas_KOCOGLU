@@ -45,3 +45,9 @@ export default {
   },
 };
 </script>
+
+<style>
+button {
+  width: auto;
+}
+</style>
