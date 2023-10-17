@@ -134,3 +134,7 @@ dist
 
 # Mac OS
 .DS_Store
+
+# Old projects
+lab-1/
+lab-2/
