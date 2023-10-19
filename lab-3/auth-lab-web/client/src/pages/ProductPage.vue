@@ -11,6 +11,7 @@ import useProductService from '../services/product-service.js'
 const route = useRoute()
 const authenticationService = useAuthenticationService()
 const productService = useProductService()
+const user = authenticationService.user
 
 const id = Number.parseInt(route.params.id)
 const product = ref(null)

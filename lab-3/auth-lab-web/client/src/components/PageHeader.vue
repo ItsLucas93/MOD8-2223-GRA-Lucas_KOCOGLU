@@ -9,6 +9,7 @@ const route = useRoute()
 const router = useRouter()
 const authenticationService = useAuthenticationService()
 const searchText = ref(route.query.search || '')
+const user = authenticationService.user
 
 router.afterEach((to, from) => {
   if (to.name === home) {
@@ -58,10 +59,10 @@ function collapseWhitespace(string) {
           <li>
             <div><RouterLink :to="{ name: 'about' }">About</RouterLink></div>
           </li>
-          <li>
+          <li v-if="user && user.role === 'manager'">
             <div><RouterLink :to="{ name: 'add' }">Add product</RouterLink></div>
           </li>
-          <li>
+          <li v-if="!user">
             <div><RouterLink :to="{ name: 'signup' }">Sign up</RouterLink></div>
           </li>
           <li>

@@ -2,6 +2,8 @@ import express from 'express'
 import validator from '../../validators/product-validator.js'
 import repository from '../../persistence/product-repository.js'
 import createPaginator from '../../utility/paginator.js'
+import authorizer from '../../middleware/request-authorizer.js'
+import authentificate from '../../middleware/request-authenticator.js'
 
 const router = express.Router()
 
@@ -33,7 +35,7 @@ router.get('/products', async (req, res, next) => {
 })
 
 // POST request handler for /products endpoint (authenticated + authorized)
-router.post('/products', async (req, res, next) => {
+router.post('/products', authentificate, authorizer("manager"), async (req, res, next) => {
   try {
     const name = req.body.name
     const price = roundPrice(req.body.price)
@@ -80,7 +82,7 @@ router.get('/products/:id', async (req, res, next) => {
 })
 
 // PUT request handler for /products/:id endpoint (authenticated + authorized)
-router.put('/products/:id', async (req, res, next) => {
+router.put('/products/:id', authentificate, authorizer("manager"), async (req, res, next) => {
   try {
     const id = Number.parseInt(req.params.id)
     const name = req.body.name
@@ -108,7 +110,7 @@ router.put('/products/:id', async (req, res, next) => {
 })
 
 // PATCH request handler for /products/:id endpoint (authenticated + authorized)
-router.patch('/products/:id', async (req, res, next) => {
+router.patch('/products/:id', authentificate, authorizer("manager"), async (req, res, next) => {
   try {
     const id = Number.parseInt(req.params.id)
     const name = req.body.name
@@ -136,7 +138,7 @@ router.patch('/products/:id', async (req, res, next) => {
 })
 
 // DELETE request handler for /products/:id endpoint (authenticated + authorized)
-router.delete('/products/:id', async (req, res, next) => {
+router.delete('/products/:id', authentificate, authorizer("manager"), async (req, res, next) => {
   try {
     const id = Number.parseInt(req.params.id)
 
