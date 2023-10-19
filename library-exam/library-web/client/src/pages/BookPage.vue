@@ -11,6 +11,7 @@ import useBookService from '../services/book-service.js'
 const route = useRoute()
 const authenticationService = useAuthenticationService()
 const bookService = useBookService()
+const user = authenticationService.user
 
 const id = Number.parseInt(route.params.id)
 const book = ref(null)
@@ -101,10 +102,10 @@ function canEditBook() {
       <BookHeader :book="book" />
       <p>{{ book.description }}</p>
 
-      <button @click="editBook" class="edit"><EditIcon /></button>
+      <button v-if="user && user.role === 'librarian'" @click="editBook" class="edit"><EditIcon /></button>
 
       <BookForm
-        v-if="formIsEnabled"
+        v-if="formIsEnabled && user && user.role === 'librarian'"
         primary-button="Save"
         primary-button-class="success"
         secondary-button="Delete"
