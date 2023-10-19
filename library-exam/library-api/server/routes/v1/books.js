@@ -35,8 +35,21 @@ router.get('/books', async (req, res, next) => {
 // POST request handler for /books endpoint (authenticated + authorized)
 router.post('/books', async (req, res, next) => {
   try {
-    // TODO
-    res.status(404).json({ error: { message: 'Route not implemented.' } })
+    const title = req.body.title
+    const author = req.body.author
+    const year = req.body.year
+    const pageCount = req.body.pageCount
+    const description = req.body.description
+
+    const err = validator.validateCreateBook(title, author, year, pageCount, description)
+    if (err) {
+        err.status = 400
+        return next(err)
+    }
+
+    const createBook = await repository.createBook(title, author, year, pageCount, description)
+    res.status(201).json({ createBook })
+    
   } catch (err) {
     // Catch any internal server error
     next(err) // Pass error to next error handler middleware
