@@ -34,6 +34,11 @@ router.get('/books', async (req, res, next) => {
 
 // POST request handler for /books endpoint (authenticated + authorized)
 router.post('/books', async (req, res, next) => {
+  const errorSession = validator.validateSession(req.session)
+  if (errorSession) {
+    return next(errorSession)
+  }
+
   try {
     const title = req.body.title
     const author = req.body.author
@@ -49,7 +54,7 @@ router.post('/books', async (req, res, next) => {
 
     const createBook = await repository.createBook(title, author, year, pageCount, description)
     res.status(201).json({ createBook })
-    
+
   } catch (err) {
     // Catch any internal server error
     next(err) // Pass error to next error handler middleware
@@ -82,6 +87,11 @@ router.get('/books/:id', async (req, res, next) => {
 
 // PUT request handler for /books/:id endpoint (authenticated + authorized)
 router.put('/books/:id', async (req, res, next) => {
+  const errorSession = validator.validateSession(req.session)
+  if (errorSession) {
+    return next(errorSession)
+  }
+
   try {
     const id = Number.parseInt(req.params.id)
     const title = req.body.title
@@ -112,6 +122,11 @@ router.put('/books/:id', async (req, res, next) => {
 
 // PATCH request handler for /books/:id endpoint (authenticated + authorized)
 router.patch('/books/:id', async (req, res, next) => {
+  const errorSession = validator.validateSession(req.session)
+  if (errorSession) {
+    return next(errorSession)
+  }
+
   try {
     const id = Number.parseInt(req.params.id)
     const title = req.body.title
@@ -142,6 +157,11 @@ router.patch('/books/:id', async (req, res, next) => {
 
 // DELETE request handler for /books/:id endpoint (authenticated + authorized)
 router.delete('/books/:id', async (req, res, next) => {
+  const errorSession = validator.validateSession(req.session)
+    if (errorSession) {
+      return next(errorSession)
+    }
+
   try {
     const id = Number.parseInt(req.params.id)
 

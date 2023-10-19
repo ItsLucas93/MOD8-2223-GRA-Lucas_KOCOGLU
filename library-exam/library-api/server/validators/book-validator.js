@@ -279,11 +279,25 @@ function validateDescription(description) {
   return null
 }
 
+function validateSession(session) {
+  if (!session) {
+    const error = new Error('Error 401 : Unauthorized')
+    error.status = 401;
+    return error;
+  } else if (!(session.user.role === 'librarian')) {
+    const error = new Error('Error 403 : Forbidden')
+    error.status = 403;
+    return error;
+  }
+  return null
+}
+
 export default {
   validateFindBook,
   validateFindBooks,
   validateCreateBook,
   validateReplaceBook,
   validateUpdateBook,
-  validateDeleteBook
+  validateDeleteBook,
+  validateSession
 }
