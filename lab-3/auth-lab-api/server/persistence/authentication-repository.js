@@ -30,7 +30,7 @@ const mapUser = (row) => {
 }
 
 const createUser = async (username, password, role, name) => {
-  const query = 'INSERT INTO users (username, password, role, name) VALUES (?, ?, ?);'
+  const query = 'INSERT INTO users (username, password, role, name) VALUES (?, ?, ?, ?);'
   const [result] = await database.execute(query, [username, password, role, name])
   if (result.affectedRows > 0) {
     return { username, role, name }

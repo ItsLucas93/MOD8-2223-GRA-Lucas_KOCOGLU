@@ -65,10 +65,10 @@ function collapseWhitespace(string) {
           <li v-if="!user">
             <div><RouterLink :to="{ name: 'signup' }">Sign up</RouterLink></div>
           </li>
-          <li>
+          <li v-if="!user">
             <div><RouterLink :to="{ name: 'login' }">Log in</RouterLink></div>
           </li>
-          <li>
+          <li v-if="user">
             <div><a @click="authenticationService.logOut">Log out</a></div>
           </li>
         </ul>

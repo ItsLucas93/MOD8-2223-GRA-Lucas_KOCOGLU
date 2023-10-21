@@ -102,7 +102,7 @@ function canEditProduct() {
       <ProductHeader :product="product" />
       <p>{{ product.description }}</p>
 
-      <button @click="editProduct" class="edit"><EditIcon /></button>
+      <button v-if="user && user.role === 'manager'" @click="editProduct" class="edit"><EditIcon /></button>
 
       <ProductForm
         v-if="formIsEnabled"

@@ -8,6 +8,7 @@ import useProductService from '../services/product-service.js'
 const router = useRouter()
 const authenticationService = useAuthenticationService()
 const productService = useProductService()
+const user = authenticationService.user
 
 const errorMessage = ref('')
 
@@ -29,11 +30,13 @@ async function addProduct(name, price, description) {
   <main>
     <div class="content">
       <ProductForm
+          v-if="user && user.role === 'manager'"
         primary-button="Add"
         primary-button-class="success"
         :error-message="errorMessage"
         @primary-button-clicked="addProduct"
       />
+      <div v-else class="danger">Error: Access denied.</div>
     </div>
   </main>
 </template>
